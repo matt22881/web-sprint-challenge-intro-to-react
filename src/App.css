@@ -1,8 +1,86 @@
+* {
+    /* border: 1px solid red; */
+}
+
+html {
+    font-size: 62.5%;
+    background-image: url('./images/peace-among-worlds.jpg');
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+}
+
 .App {
-  text-align: center;
+    text-align: center;
+    
 }
-.Header {
-  color: #443e3e;
-  text-shadow: 1px 1px 5px #fff;
+
+.big {
+    display:flex;
+    flex-direction: row;
+    justify-items:
 }
-/* write your parent styles in here for your App.js */
+.filler {
+    display: inline-block;
+    width: 50vw;
+    opacity: 0%;
+    position: fixed;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+
+.row {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+
+}
+
+.Character {
+    width:60%;
+    margin: 0 0 0 35%;
+    color:  #f9e7dc;
+    text-shadow: 1px 1px 5px #f9e7dc;
+}
+
+h1 {
+    font-size: 4rem;
+}
+h2{
+    font-size: 2.5rem;
+}
+h3 {
+    font-size: 2rem;
+}
+h4 {
+    font-size: 1.8;
+    margin: 0 auto;
+}
+p {
+    font-size: 1.6rem;
+}
+
+a {
+    font-size: 125%;
+    color:  #f9e7dc;
+    text-shadow: 1px 1px 5px #f9e7dc;
+    text-decoration: none;
+    transition: 1s;
+    cursor: url('images/finger.png'), pointer;
+}
+
+a:hover {
+     color: orange;
+    text-shadow: 1px 1px 5px orange, 0.5;
+    transition: 1s;
+    text-decoration: underline;
+}
+
+li {
+    color:  #f9e7dc;
+}
