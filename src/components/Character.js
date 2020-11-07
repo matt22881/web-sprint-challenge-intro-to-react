@@ -13,7 +13,6 @@ const Char =styled.div`
     background: rgba(0, 0, 0, 0.6);
     text-align: center;
     position: relative;
-
 `
 
 const Head = styled.h1`
@@ -25,7 +24,7 @@ const Head = styled.h1`
 
 const Epis = styled.ul`
     columns: 2;
-    list-style: none;git ad
+    list-style: none;
 `
 
 const ImgContainer = styled.div`
@@ -34,8 +33,8 @@ const ImgContainer = styled.div`
     img {
         width: 75%;
         }
-
 `
+
 const BodyContainer = styled.div`
     color: #f9e7dc;
     display: flex;
@@ -43,12 +42,14 @@ const BodyContainer = styled.div`
     justify-content: space-evenly;
     padding: 1rem;
 `
+
 const ContentContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     margin: auto 0;
 `
+
 const ShowEpisodes = styled.button`
     background-color: #f9e7dc;
     display: inline-block;
@@ -59,7 +60,8 @@ const ShowEpisodes = styled.button`
 `
 
 export default function Character(props) {
-    const { name, url, status, species, image, episode, location, id  } = props.character
+
+    const { name, url, status, species, image, episode, location  } = props.character
 
     const [toggle, toggleToggle] = useState(false)
     const onClick = (e) => {
@@ -86,8 +88,8 @@ export default function Character(props) {
                             <p>{status}</p>
                         </ContentContainer>
                         <ContentContainer className='column'>
-                            <h3>Last Known Location:</h3>
-                            <a href={location.url}>{location.name}</a>
+                            <h3>Last Known Location:</h3>  {/*eslint-disable-next-line*/}
+                            <a href={location.url} target='_blank'>{location.name}</a>
                         </ContentContainer>
                     </ContentContainer>
                 </ContentContainer>

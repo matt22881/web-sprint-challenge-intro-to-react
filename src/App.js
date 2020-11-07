@@ -8,19 +8,16 @@ const app = styled.div`
     display: flex;
     max-width: 40vw;
     border: 2px dotted brown;
-    padding 2 rem;
+    padding: 2rem;
   `
-
-
-
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
-
   const [characters, setCharacters] = useState([])
   const [episodes, setEpisodes] = useState([])
   const [locations, setLocations] = useState([])
+
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
@@ -67,7 +64,7 @@ const App = () => {
   return (
 
 <div>
-<div className='filler'></div>
+    <div className='filler'></div>
     <div>
         <app>
             {
@@ -82,9 +79,7 @@ const App = () => {
         </app>
     </div>
 </div>
-  );
+  )
 }
-
-
 
 export default App;
