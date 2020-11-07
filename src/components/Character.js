@@ -25,6 +25,7 @@ const Head = styled.h1`
 
 const Epis = styled.ul`
     columns: 2;
+    list-style: none;git ad
 `
 
 const ImgContainer = styled.div`
