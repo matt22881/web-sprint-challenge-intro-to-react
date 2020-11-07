@@ -18363,8 +18363,8 @@ app.get('/api/location/:id', getLocationById)
 // app.put('/api/users/:id', replaceUserById)
 // app.get('/*', getData)
 
-app.listen(4242, () => console.log(
-  'The greatest API of all time is listening on port 4242!',))
+app.listen(PORT, () => console.log(
+  `The most Schwifty API in the Galaxy is listening on port ${PORT}`))
 
 
 
