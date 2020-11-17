@@ -1,3 +1,5 @@
+import React, { useState, Component } from 'react';
+import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import './App.css';
@@ -11,6 +13,9 @@ const app = styled.div`
     padding: 2rem;
   `
 const App = () => {
+
+//   const [ myState, setMyState ] = useState(null) 
+  
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
@@ -81,5 +86,6 @@ const App = () => {
 </div>
   )
 }
+
 
 export default App;
