@@ -1,50 +1,17 @@
 import React, { useState, Component } from 'react';
 import './App.css';
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  NavbarText,
-  DropdownItem,
-  Pagination, 
-  PaginationItem,
-  PaginationLink ,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  Breadcrumb, 
-  BreadcrumbItem,
-  FormText ,
-  Fade,
-  Jumbotron,
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  TabContent,
-  TabPane,
-  ButtonGroup, ButtonDropdown,
-  Card,
-    IsOpen, 
-  CardTitle, 
-  CardText, 
-  Row,
-  Col,
-  CarouselCaption
-} from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
+import './App.css';
+import Character from './components/Character'
+import styled from 'styled-components'
 
-
-// class App extends Component {
-
+const app = styled.div`
+    display: flex;
+    max-width: 40vw;
+    border: 2px dotted brown;
+    padding: 2rem;
+  `
 const App = () => {
 
 //   const [ myState, setMyState ] = useState(null) 
@@ -52,55 +19,72 @@ const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
 
+  const [characters, setCharacters] = useState([])
+  const [episodes, setEpisodes] = useState([])
+  const [locations, setLocations] = useState([])
+
   // Fetch characters from the API in an effect hook. Remember, anytime you have a 
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
+    useEffect(() => {
+        axios
+            .get('http://localhost:4242/api/character')
+            .then(res => {
+                setCharacters(Array.from(res.data)
+            )})
+            .catch(err => {
+                console.log('!!ERR!! (get #1): ', err)
+                // alert(`Something ain't right here, bud =( (get#1)`)
+                // debugger
+            })
+    },[])
 
-//   const [dropdownOpen, setOpen] = useState(false);
+    useEffect(() => {
+            axios
+                .get(`http://localhost:4242/api/episode`)
+                .then(res => {
+                    setEpisodes(Array.from(res.data))
+                })
+                .catch(err => {
+                    console.log('!!ERR!! (get #2): ', err)
+                    // alert(`Something ain't right here, bud =( (get#2)`)
+                    // debugger
+                })            
+    },[])
 
-//   const toggle = () => setOpen(!dropdownOpen);
-
-//   const Example = (props) => {
+    useEffect(() => {
+            axios
+                .get(`http://localhost:4242/api/location`)
+                .then(res => {
+                    setLocations(Array.from(res.data))
+                })
+                .catch(err => {
+                    console.log('!!ERR!! (get #3): ', err)
+                    // alert(`Something ain't right here, bud =( (get#3)`)
+                    // debugger
+                })
+    },[])
 
   return (
-    <div className="App">
-      <div className='full'>
-        <Jumbotron>
-            <h1 className="display-3">Hello, world!</h1>
-            <p className="lead">top p</p>
-            <hr className="my-2" />
-            <p>another p</p>
-            <p className="lead">
-            <Button color="primary">Learn More</Button>
-            </p>
-        </Jumbotron>
 
-    
-            <div className='left-side'>
-               
-            </div>
-            
-            <div className='right-side'>
-
-            </div>
-        </div>
-    
-
-
-      
-
-
-
-
-
-
-
-      
-
-
+<div>
+    <div className='filler'></div>
+    <div>
+        <app>
+            {
+            characters.map(character => {
+                return (<Character
+                    character={character}
+                    episodes={episodes}
+                    locations={locations}
+                    key={character.id}
+                    />)})
+            }
+        </app>
     </div>
-  );
+</div>
+  )
 }
 
 
